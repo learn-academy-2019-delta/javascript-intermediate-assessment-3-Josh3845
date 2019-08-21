@@ -5,7 +5,17 @@
 
 // 1. Write a function called getFib that returns the first 10 numbers of the Fibonacci sequence in an array. Expected output: [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 
+let fibby = [0,1]
 
+
+getFib = (num) => {
+    let fib = num.map(number => number + number)
+    let newNum = fib
+    let newFib = fib.map(number => number + number)
+    return newFib
+}
+
+console.log(getFib(fibby));
 
 // 2. Write a function called oddChecker that takes in an array and returns a new array of only odd numbers.
 
@@ -13,16 +23,25 @@ var fullArr1 = [4, 9, 0, "7", 8, true, "hey", 7, 199, -9, false, "hola"]
 // Expected output: [9, 7, 199, -9]
 var fullArr2 = ["hello", 7, 23, -823, false, 78, null, "67", 6, "number"]
 // Expected output: [7, 23, -823]
+// oddChecker = (odd) => {
+// let find = odd.filter(odds => {
+//     if(odds % 2 !== 0){
+//       return find
+//     }else {
+//       return "hi"
+//     }
+//   })
+// }
+// console.log(oddChecker(fullArr1));
 oddChecker = (odd) => {
- let find = odd.filter(odds => {
-    if(odds % 2 !== 0){
-      return find
-    }else {
-      return "hi"
-    }
-  })
-}
+ let find = odd.filter(odds => typeof odds === "number")
+     let newArr = find.filter(number => number % 2 !== 0)
+         return newArr
+     }
+
+
 console.log(oddChecker(fullArr1));
+
 
 
 // 3. Given the object below, complete the console.log to find specific information:
@@ -122,13 +141,24 @@ console.log(middle(middleLetters2));
 
 // 8. Write a program to get the area of a sphere using object classes. Create three spheres with different radi as test cases. Area of a sphere =  4πr^2 (four pi r squared)
 
-let sphere = {sphere1: 8, sphere2: 12, sphere3: 15}
-let area = 3.14
+// let sphere = {sphere1: 8, sphere2: 12, sphere3: 15}
+// let area = 3.14
 
- finArea = () => {
-   console.log(sphere.sphere1);
- }
+// finArea = () => {
+//   console.log(sphere.sphere1);
+// }
 // not sure how to get started on this one
+class Sphere{
+constructor(radius){
+this.radius = radius
+}
+getArea(){
+let pi = Math.PI
+return 4 * pi * this.radius ** 2
+}
+}
+var mySphere = new Sphere(6)
+console.log(mySphere.getArea())
 
 // 9. Use object destructuring to return the nested values of specs. Expected output: 4, "manual"
 // Don't overthink this one, it's just destrcturing practice.
