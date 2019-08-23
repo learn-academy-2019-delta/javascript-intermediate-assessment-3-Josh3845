@@ -5,7 +5,17 @@
 
 // 1. Write a function called getFib that returns the first 10 numbers of the Fibonacci sequence in an array. Expected output: [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 
+let fibby = [0,1]
 
+
+getFib = (num) => {
+    let fib = num.map(number => number + number)
+    let newNum = fib
+    let newFib = fib.map(number => number + number)
+    return newFib
+}
+
+console.log(getFib(fibby));
 
 // 2. Write a function called oddChecker that takes in an array and returns a new array of only odd numbers.
 
@@ -13,6 +23,24 @@ var fullArr1 = [4, 9, 0, "7", 8, true, "hey", 7, 199, -9, false, "hola"]
 // Expected output: [9, 7, 199, -9]
 var fullArr2 = ["hello", 7, 23, -823, false, 78, null, "67", 6, "number"]
 // Expected output: [7, 23, -823]
+// oddChecker = (odd) => {
+// let find = odd.filter(odds => {
+//     if(odds % 2 !== 0){
+//       return find
+//     }else {
+//       return "hi"
+//     }
+//   })
+// }
+// console.log(oddChecker(fullArr1));
+oddChecker = (odd) => {
+ let find = odd.filter(odds => typeof odds === "number")
+     let newArr = find.filter(number => number % 2 !== 0)
+         return newArr
+     }
+
+
+console.log(oddChecker(fullArr1));
 
 
 
@@ -29,13 +57,13 @@ var bicycle = {
 }
 
 // Log the type of bicycle:
-console.log()
+console.log(bicycle.type)
 
 // Log the bell:
-console.log()
+console.log(bicycle.gear[2])
 
 // Log the PSI:
-console.log()
+console.log(bicycle.wheels.specs[2])
 
 
 // 4. Write a function that takes one argument of type array and returns the contents of that array in reverse order.
@@ -45,7 +73,11 @@ var originalArray1 = [1, 2, 3, 4, 5, 6, 7]
 var originalArray2 = ["a", "t", "l", "e", "d"]
 // Expected output: ["d", "e", "l", "t", "a"]
 
-
+reverse = (revArr) => {
+  let reversed = revArr.reverse()
+  return reversed
+}
+console.log(reverse(originalArray2));
 
 // 5. Write the code that would make this test pass.
 
@@ -57,14 +89,25 @@ describe("multTwo", () => {
     })
 })
 
-
+let num = [3,4,5]
+multTwo = (multi) => {
+  let final = multi.map(num => num *2)
+  return final
+}
+console.log(multTwo(num));
 
 // 6. Write a function called letterCounter that logs the number of times the letter "l" appears in ourString.
 
 var ourString = "Hello Learn Students!"
 // Expected output: 3
 
+letterCounter = (find) => {
+  let letter = find.split("")
+  final = letter.filter(letter => letter.toLowerCase().includes("l"))
+  return final.length
 
+}
+console.log(letterCounter(ourString));
 
 // 7. Create a function that takes in a string of a single word and returns the middle letter of the word. If the word is an even number of letters, return the two middle letters.
 
@@ -74,12 +117,48 @@ var middleLetters2 = "lamas"
 // Expected output: “am”
 
 
+middle = (mid) => {
+  let center = mid.length / 2.0
+  // let thisLetter = Math.floor(center)
+  let thisLetter = Math.floor(center)
+    let otherLetter = center - 1
+    // console.log(center);
+  if(center % 2 !== 0){
+
+    return mid[thisLetter]
+  }
+    else if(center % 2 === 0) {
+console.log(center);
+      return mid[otherLetter].join(mid[center])
+      console.log(center);
+    }
+}
+
+
+console.log(middle(middleLetters2));
+// After many differnet variations of the above and running tests I somehow have an issue with the if and or else if statement.  I also know the join function isn't correct.  
 
 
 // 8. Write a program to get the area of a sphere using object classes. Create three spheres with different radi as test cases. Area of a sphere =  4πr^2 (four pi r squared)
 
+// let sphere = {sphere1: 8, sphere2: 12, sphere3: 15}
+// let area = 3.14
 
-
+// finArea = () => {
+//   console.log(sphere.sphere1);
+// }
+// not sure how to get started on this one
+class Sphere{
+constructor(radius){
+this.radius = radius
+}
+getArea(){
+let pi = Math.PI
+return 4 * pi * this.radius ** 2
+}
+}
+var mySphere = new Sphere(6)
+console.log(mySphere.getArea())
 
 // 9. Use object destructuring to return the nested values of specs. Expected output: 4, "manual"
 // Don't overthink this one, it's just destrcturing practice.
@@ -93,7 +172,10 @@ var myCar = {
   }
 }
 
+const {doors} = myCar.specs
+// console.log(myCar.specs.doors);
 
+console.log(doors);
 
 // 10. Stretch: Create a function that takes in an array and returns an array of the accumulating sum. An empty array should return an empty array.
 
